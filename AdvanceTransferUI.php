@@ -40,6 +40,7 @@ class AdvanceTransferUI extends PluginBase{
             "서버이동" => "서버이동 명령어 입니다. || made by AvasKr",
             "서버이동관리" => "서버이동관리 명령어 입니다. || made by AvasKr"
         ]);
+        $this->getServer()->getPluginManager()->registerEvents(new EventListener($this), $this);
     }
     public function onDisable()
     {
@@ -148,7 +149,7 @@ class ServerForms{
     {
         $arr = [];
         foreach($this->plugin->db as $name => $value){
-            $arr[] = [ "§b> §f{$name} 서버 이동\n§f아이피 - §b{$this->plugin->db[$name]["address"]}" ];
+            $arr[] = [ "text" => "§b> §f{$name} 서버 이동\n§f아이피 - §b{$this->plugin->db[$name]["address"]}" ];
         }
         return [
             'type' => 'form',

@@ -139,7 +139,7 @@ class AdvanceTransferUI extends PluginBase{
 class ServerForms{
     protected $plugin;
 
-    public function __construct(AdvanceServerUI $plugin)
+    public function __construct(AdvanceTransferUI $plugin)
     {
         $this->plugin = $plugin;
     }
@@ -161,7 +161,7 @@ class ServerForms{
 class EventListener implements Listener{
     protected $plugin;
 
-    public function __construct(AdvanceServerUI $plugin)
+    public function __construct(AdvanceTransferUI $plugin)
     {
         $this->plugin = $plugin;
     }

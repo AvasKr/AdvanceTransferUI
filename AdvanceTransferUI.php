@@ -13,6 +13,7 @@ namespace AvasKr;
 use pocketmine\plugin\PluginBase;
 use pocketmine\event\Listener;
 use pocketmine\Player;
+use pocketmine\Server;
 use pocketmine\utils\Config;
 use pocketmine\command\{
     Command, CommandSender
@@ -122,7 +123,7 @@ class AdvanceTransferUI extends PluginBase{
     {
         $this->db [$name] = [];
         $this->db [$name] ['address'] = $address;
-        $this->db [$name] ['port'] = $port === 19132 ? 19132 $port;
+        $this->db [$name] ['port'] = $port;
         if($player !== null){
             $this->db [$name] ['creature'] = $player->getName();
         } else {
@@ -173,7 +174,7 @@ class EventListener implements Listener{
             $result = json_decode($packet->formData);
             if($packet->formId === AdvanceServerUI::SERVER_UI_FORM){
                 if(is_null($result)){
-                    return true;
+                    return;
                 }
                 $arr = [];
                 $index = 0;
